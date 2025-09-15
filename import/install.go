@@ -3,9 +3,10 @@ package main
 import (
 	"database/sql"
 	"fmt"
-	"io/ioutil"
 	"log"
 	"strings"
+
+	"os"
 
 	_ "github.com/lib/pq"
 )
@@ -28,7 +29,7 @@ func main() {
 
 	// Read the SQL file
 	sqlFilePath := "database-dump.sql" // Adjust this to your .sql file path
-	sqlContent, err := ioutil.ReadFile(sqlFilePath)
+	sqlContent, err := os.ReadFile(sqlFilePath)
 	if err != nil {
 		log.Fatal("Failed to read SQL file:", err)
 	}
