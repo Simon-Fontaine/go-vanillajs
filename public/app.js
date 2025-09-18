@@ -1,4 +1,5 @@
 import API from "./services/API.js";
+import "./components/HomePage.js";
 
 window.app = {
   search: (event) => {
