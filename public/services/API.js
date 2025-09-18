@@ -23,6 +23,7 @@ export const API = {
       return result;
     } catch (e) {
       console.error(e);
+      app.showError();
     }
   },
 };

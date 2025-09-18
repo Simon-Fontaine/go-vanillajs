@@ -1,4 +1,4 @@
-export class YouTubeEmbed extends HTMLElement {
+export default class YouTubeEmbed extends HTMLElement {
   static get observedAttributes() {
     return ["data-url"];
   }
