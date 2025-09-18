@@ -19,6 +19,25 @@ window.app = {
   closeError: () => {
     document.getElementById("alert-modal").close();
   },
+  search: (event) => {
+    event.preventDefault();
+    const keywords = document.querySelector("input[type=search]").value;
+    if (keywords.length > 1) {
+      app.Router.go(`/movies?q=${keywords}`);
+    }
+  },
+  searchOrderChange: (order) => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const q = urlParams.get("q");
+    const genre = urlParams.get("genre") ?? "";
+    app.Router.go(`/movies?q=${q}&order=${order}&genre=${genre}`);
+  },
+  searchFilterChange: (genre) => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const q = urlParams.get("q");
+    const order = urlParams.get("order") ?? "";
+    app.Router.go(`/movies?q=${q}&order=${order}&genre=${genre}`);
+  },
 };
 
 window.addEventListener("DOMContentLoaded", () => {
